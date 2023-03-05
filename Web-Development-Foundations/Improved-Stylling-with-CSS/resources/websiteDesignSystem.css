@@ -1,0 +1,170 @@
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 1rem auto;
+  text-align: center;
+  color: darkolivegreen;
+}
+
+.container {
+  width: 90%;
+  height: 27rem;
+  border: 2px solid lightgrey;
+  margin: 2rem auto;
+}
+
+.container h2 {
+  margin: 1rem;
+}
+
+.color {
+  display: inline-block;
+  width: 15rem;
+  height: 8rem;
+  margin: 0.5rem;
+  border-radius: 2px;
+}
+
+.color p {
+  font-size: 1.3em;
+  text-align: center;
+  margin: 1rem auto;
+  font-weight: bold;
+}
+
+#color-aquamarine {
+  background-color: aquamarine;
+}
+
+#color-aquamarine p {
+  color: rgb(54, 59, 38);
+}
+
+#color-steelblue {
+  background-color: steelblue;
+}
+
+#color-steelblue p {
+  color: white;
+}
+
+#color-darkbeige {
+  background-color: #f6c987;
+}
+
+#color-darkbeige p {
+  color: #008b52;
+}
+
+#color-bananayellow {
+  background-color: #f6ef00;
+}
+
+#color-bananayellow p {
+  color: #876cb4;
+}
+
+.container .font-panel {
+  margin: 0 1rem;
+  display: inline-block;
+  font-size: 1rem;
+}
+
+.font-panel p:first-child {
+  margin: 0 0.5rem 1rem 0;
+  font-size: 1.4rem;
+  text-decoration: underline;
+}
+
+#roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+#roboto p:nth-child(2) {
+  font-weight: 300;
+  font-style: italic;
+}
+
+#roboto p:nth-child(3) {
+  font-weight: 400;
+}
+
+#roboto p:last-child {
+  font-weight: 500;
+  font-style: italic;
+}
+
+#poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+#poppins p:nth-child(2) {
+  font-weight: 200;
+}
+
+#poppins p:nth-child(3) {
+  font-weight: 400;
+}
+
+#poppins p:last-child {
+  font-weight: 600;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+#nunito {
+  font-family: 'Nunito', sans-serif;
+}
+
+#nunito p:nth-child(2) {
+  font-weight: 300;
+  font-style: italic;
+}
+
+#nunito p:nth-child(3) {
+  font-weight: 400;
+}
+
+#nunito p:last-child {
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+#last-container {
+  height: 35rem;
+}
+
+.container .text-styles-panel {
+  display: block;
+  margin: 2rem;
+}
+
+#main-h1 p {
+  font-size: 1.7rem;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+}
+
+li {
+  font-size: 1.2rem;
+}
+
+#h2s p {
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+}
+
+#p-paragraph p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  font-family: 'Nunito', sans-serif;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    height: 42rem;
+  }
+}

@@ -1,0 +1,60 @@
+* {
+  font-family: 'Helvetica';
+}
+
+header {
+  background-image: url('./Image1.jpeg');
+}
+
+h1 {
+  height: 8.75rem;
+  font-size: 7rem;
+  color: khaki;
+  text-align: center;
+}
+
+.brushes,
+.frames,
+.paint {
+  color: white;
+  font-size: 2rem;
+  padding: 0.3rem;
+}
+
+.brushes {
+  background-color: mediumspringgreen;
+}
+
+.frames {
+  background-color: lightcoral;
+}
+
+.paint {
+  background-color: skyblue;
+}
+
+span {
+  font-weight: bold;
+  color: blue;
+}
+
+@media screen and (max-width: 1300px) {
+  h1 {
+    font-size: 6rem;
+    height: 7.25rem;
+  }
+}
+
+@media screen and (max-width: 1130px) {
+  h1 {
+    font-size: 5rem;
+    height: 6.75rem;
+  }
+}
+
+@media screen and (max-width: 940px) {
+  h1 {
+    font-size: 4.5rem;
+    height: 6rem;
+  }
+}

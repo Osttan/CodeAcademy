@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&family=Lato&display=swap');
+
+body {
+  background-color: beige;
+}
+
+h1,
+h2 {
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 3rem auto;
+}
+
+thead {
+  background-color: azure;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 0.5rem;
+}
+
+.property {
+  background-color: rgb(206, 250, 235);
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.9em;
+}

@@ -1,0 +1,21 @@
+.breadcrumb {
+  margin: 1rem;
+}
+
+.breadcrumb li {
+  display: inline;
+}
+
+.breadcrumb li.location + li.location::before {
+  content: '> ';
+}
+
+.breadcrumb li.attribute a {
+  color: lightseagreen;
+}
+
+.breadcrumb li.attribute a::after {
+  content: 'X';
+  background-color: antiquewhite;
+  margin-left: 5px;
+}
