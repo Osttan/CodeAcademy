@@ -27,5 +27,5 @@ console.log(lengthCheck)
 const longWordIndex = storyWords.findIndex(word => word.length > 10)
 storyWords[longWordIndex] = 'stunning'
 
-// console.log(count);
+console.log(count);
 console.log(storyWords.join(" "));
