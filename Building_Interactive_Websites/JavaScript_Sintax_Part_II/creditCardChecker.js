@@ -61,24 +61,76 @@ const validateCred = (arr) => {
   return sumOfDigits % 10 === 0 ? true : false;
 };
 
-console.log(validateCred(valid1));
-console.log(validateCred(valid2));
-console.log(validateCred(valid3));
-console.log(validateCred(valid4));
-console.log(validateCred(valid5));
+const findInvalidCards = (nestedCards) => {
+  const invalidCards = [];
+  nestedCards.forEach((card) => {
+    if (validateCred(card) === false) {
+      invalidCards.push(card);
+    }
+  });
+  return invalidCards;
+};
 
-console.log("Now the invalids");
+const idInvalidCardCompanies = (nestedInvCards) => {
+  const invCardCompanies = [];
+  nestedInvCards.filter((invCard) => {
+    switch (invCard[0]) {
+      case 3:
+        if (invCardCompanies.includes("Amex (American Express)")) {
+          break;
+        } else {
+          invCardCompanies.push("Amex (American Express)");
+          break;
+        }
+      case 4:
+        if (invCardCompanies.includes("Visa")) {
+          break;
+        } else {
+          invCardCompanies.push("Visa");
+          break;
+        }
+      case 5:
+        if (invCardCompanies.includes("Mastercard")) {
+          break;
+        } else {
+          invCardCompanies.push("Mastercard");
+        }
+        break;
+      case 6:
+        if (invCardCompanies.includes("Discover")) {
+          break;
+        } else {
+          invCardCompanies.push("Discover");
+        }
+        break;
+    }
+  });
+  return invCardCompanies;
+};
 
-console.log(validateCred(invalid1));
-console.log(validateCred(invalid2));
-console.log(validateCred(invalid3));
-console.log(validateCred(invalid4));
-console.log(validateCred(invalid5));
+// console.log(validateCred(valid1));
+// console.log(validateCred(valid2));
+// console.log(validateCred(valid3));
+// console.log(validateCred(valid4));
+// console.log(validateCred(valid5));
 
-console.log("Now the misterious ones");
+// console.log("Now the invalids");
 
-console.log(validateCred(mystery1));
-console.log(validateCred(mystery2));
-console.log(validateCred(mystery3));
-console.log(validateCred(mystery4));
-console.log(validateCred(mystery5));
+// console.log(validateCred(invalid1));
+// console.log(validateCred(invalid2));
+// console.log(validateCred(invalid3));
+// console.log(validateCred(invalid4));
+// console.log(validateCred(invalid5));
+
+// console.log("Now the misterious ones");
+
+// console.log(validateCred(mystery1));
+// console.log(validateCred(mystery2));
+// console.log(validateCred(mystery3));
+// console.log(validateCred(mystery4));
+// console.log(validateCred(mystery5));
+
+// console.log(findInvalidCards(batch));
+
+const invalidCardsArr = findInvalidCards(batch);
+console.log(idInvalidCardCompanies(invalidCardsArr));
