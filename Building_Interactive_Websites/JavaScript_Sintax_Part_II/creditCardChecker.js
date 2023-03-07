@@ -19,6 +19,13 @@ const mystery3 = [6, 0, 1, 1, 3, 7, 7, 0, 2, 0, 9, 6, 2, 6, 5, 6, 2, 0, 3];
 const mystery4 = [4, 9, 2, 9, 8, 7, 7, 1, 6, 9, 2, 1, 7, 0, 9, 3];
 const mystery5 = [4, 9, 1, 3, 5, 4, 0, 4, 6, 3, 0, 7, 2, 5, 2, 3];
 
+// Bonus cards from free formater
+const discover1 = "6011006192703081";
+const discover2 = "6011427069136256";
+const discover3 = "6011875260387119376";
+const maestro1 = "6759716263994718";
+const maestro2 = "6763560319266356";
+
 // An array of all the arrays above
 const batch = [
   valid1,
@@ -39,7 +46,7 @@ const batch = [
 ];
 
 // Add your functions below:
-const validateCred = (arr) => {
+const checkIsValid = (arr) => {
   let sumOfDigits = 0;
 
   let i = arr.length - 2;
@@ -58,13 +65,19 @@ const validateCred = (arr) => {
     i -= 2;
   }
 
-  return sumOfDigits % 10 === 0 ? true : false;
+  return sumOfDigits;
+};
+
+const validateCred = (arr, checkFunc) => {
+  const result = checkFunc(arr);
+
+  return result % 10 === 0 ? true : false;
 };
 
 const findInvalidCards = (nestedCards) => {
   const invalidCards = [];
   nestedCards.forEach((card) => {
-    if (validateCred(card) === false) {
+    if (!validateCred(card, checkIsValid)) {
       invalidCards.push(card);
     }
   });
@@ -103,34 +116,83 @@ const idInvalidCardCompanies = (nestedInvCards) => {
           invCardCompanies.push("Discover");
         }
         break;
+      default:
+        console.log("Company not found");
+        break;
     }
   });
   return invCardCompanies;
 };
 
-// console.log(validateCred(valid1));
-// console.log(validateCred(valid2));
-// console.log(validateCred(valid3));
-// console.log(validateCred(valid4));
-// console.log(validateCred(valid5));
+const strToArr = (inputStr) => {
+  const resultArr = [];
+  for (let i = 0; i < inputStr.length; i++) {
+    resultArr.push(parseInt(inputStr[i]));
+  }
+  return resultArr;
+};
+
+const invToVal = (cardNotValid, checkFunc) => {
+  const oldValue = cardNotValid.join("");
+  const restOfDivision = checkFunc(cardNotValid) % 10;
+
+  if (restOfDivision > 0) {
+    for (let i = cardNotValid.length - 1; i >= 0; i--) {
+      if (cardNotValid[i] - restOfDivision >= 0) {
+        cardNotValid[i] -= restOfDivision;
+        return `The invalid card ${oldValue} was converted to a valid card: ${cardNotValid.join(
+          ""
+        )}`;
+      } else {
+        i--;
+      }
+    }
+  } else {
+    return "This is already a valid card";
+  }
+};
+
+// const invalid6 = strToArr("4532778771091790");
+// const invalid7 = strToArr("5795593392134641");
+// const invalid8 = strToArr("375796084459114");
+// const invalid9 = strToArr("6011127961777930");
+// const invalid10 = strToArr("5382019772883853");
+// console.log(invToVal(invalid1, checkIsValid));
+// console.log(invToVal(invalid2, checkIsValid));
+// console.log(invToVal(invalid3, checkIsValid));
+// console.log(invToVal(invalid4, checkIsValid));
+// console.log(invToVal(invalid5, checkIsValid));
+// console.log(invToVal(invalid6, checkIsValid));
+// console.log(invToVal(valid1, checkIsValid));
+
+// console.log(validateCred(valid1, checkIsValid));
+// console.log(validateCred(valid2, checkIsValid));
+// console.log(validateCred(valid3, checkIsValid));
+// console.log(validateCred(valid4, checkIsValid));
+// console.log(validateCred(valid5, checkIsValid));
+// console.log(validateCred(invalid6, checkIsValid));
+// console.log(validateCred(invalid7, checkIsValid));
+// console.log(validateCred(invalid8, checkIsValid));
+// console.log(validateCred(invalid9, checkIsValid));
+// console.log(validateCred(invalid10, checkIsValid));
 
 // console.log("Now the invalids");
 
-// console.log(validateCred(invalid1));
-// console.log(validateCred(invalid2));
-// console.log(validateCred(invalid3));
-// console.log(validateCred(invalid4));
-// console.log(validateCred(invalid5));
+// console.log(validateCred(invalid1, checkIsValid));
+// console.log(validateCred(invalid2, checkIsValid));
+// console.log(validateCred(invalid3, checkIsValid));
+// console.log(validateCred(invalid4, checkIsValid));
+// console.log(validateCred(invalid5, checkIsValid));
 
 // console.log("Now the misterious ones");
 
-// console.log(validateCred(mystery1));
-// console.log(validateCred(mystery2));
-// console.log(validateCred(mystery3));
-// console.log(validateCred(mystery4));
-// console.log(validateCred(mystery5));
+// console.log(validateCred(mystery1, checkIsValid));
+// console.log(validateCred(mystery2, checkIsValid));
+// console.log(validateCred(mystery3, checkIsValid));
+// console.log(validateCred(mystery4, checkIsValid));
+// console.log(validateCred(mystery5, checkIsValid));
 
 // console.log(findInvalidCards(batch));
 
-const invalidCardsArr = findInvalidCards(batch);
-console.log(idInvalidCardCompanies(invalidCardsArr));
+// const invalidCardsArr = findInvalidCards(batch);
+// console.log(idInvalidCardCompanies(invalidCardsArr));
