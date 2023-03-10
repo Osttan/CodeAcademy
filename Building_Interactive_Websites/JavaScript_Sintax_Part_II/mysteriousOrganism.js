@@ -42,6 +42,9 @@ const pAqueorFactory = (num, arrDNA) => {
           otherArqueor.specimenNum
         } have ${((sameDNA / this.dna.length) * 100).toFixed(2)}% DNA in common`
       );
+
+      // for the use of the twoMostRelated Function
+      return (sameDNA / this.dna.length) * 100;
     },
 
     willLikelySurvive() {
@@ -54,6 +57,30 @@ const pAqueorFactory = (num, arrDNA) => {
 
       survivalChance /= this.dna.length;
       return survivalChance >= 0.6 ? true : false;
+    },
+    complementStrand() {
+      const complDNAStrand = [];
+
+      this.dna.forEach((dnaElement) => {
+        switch (dnaElement) {
+          case "A":
+            complDNAStrand.push("T");
+            break;
+
+          case "T":
+            complDNAStrand.push("A");
+            break;
+
+          case "C":
+            complDNAStrand.push("G");
+            break;
+
+          case "G":
+            complDNAStrand.push("C");
+            break;
+        }
+      });
+      return complDNAStrand;
     },
   };
 };
@@ -75,6 +102,35 @@ const generateAqeors = (dnaStrandFunc, factoryFunc) => {
   return arrOfAqueors;
 };
 
+const twoMostRelated = (groupOfAqueors) => {
+  let percentage = groupOfAqueors[0].compareDNA(groupOfAqueors[1]);
+  let mostRelated = percentage,
+    specimenOne = [
+      `${groupOfAqueors[0].specimenNum} e ${groupOfAqueors[1].specimenNum}`,
+    ];
+
+  for (let i = 1; i < groupOfAqueors[0].dna.length; i++) {
+    let percentage = groupOfAqueors[i].compareDNA(groupOfAqueors[i + 1]);
+
+    if (percentage > mostRelated) {
+      specimenOne = [];
+      specimenOne.push(
+        ` ${groupOfAqueors[i].specimenNum} e ${
+          groupOfAqueors[i + 1].specimenNum
+        }`
+      );
+      mostRelated = percentage;
+    } else if (percentage === mostRelated) {
+      specimenOne.push(
+        ` ${groupOfAqueors[i].specimenNum} e ${
+          groupOfAqueors[i + 1].specimenNum
+        }`
+      );
+    }
+  }
+  return `As instâncias de pAqueor com maior número de relações são as de números${specimenOne} `;
+};
+
 const test = pAqueorFactory(2, mockUpStrand());
 const anotherTest = pAqueorFactory(3, mockUpStrand());
 // console.log(test.mutate());
@@ -83,5 +139,9 @@ const anotherTest = pAqueorFactory(3, mockUpStrand());
 // console.log(test.willLikelySurvive(anotherTest));
 // test.willLikelySurvive(test);
 // test.willLikelySurvive(anotherTest);
-generateAqeors(mockUpStrand, pAqueorFactory);
-console.log(generateAqeors(mockUpStrand, pAqueorFactory));
+// generateAqeors(mockUpStrand, pAqueorFactory);
+// console.log(generateAqeors(mockUpStrand, pAqueorFactory));
+// console.log(test.complementStrand());
+
+const aqueors = generateAqeors(mockUpStrand, pAqueorFactory);
+console.log(twoMostRelated(aqueors));
