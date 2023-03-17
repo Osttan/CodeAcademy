@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+header {
+  background-color: #f8faf7;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  height: 6rem;
+  padding: 0 2rem;
+  /* border: 1px solid green; */
+}
+
+header p {
+  font-weight: 400;
+
+  color: rgb(21, 50, 51);
+}
+
+header ul {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  /* border: 1px solid red; */
+}
+
+header ul li {
+  list-style-type: none;
+  margin: 0 2rem;
+}
+
+header ul li a {
+  text-decoration: none;
+  color: rgb(21, 50, 51);
+}
+
+header ul li a:hover {
+  color: lightgreen;
+}
+
+main {
+  background-color: rgb(152, 199, 150);
+  height: 90vh;
+  border: 2px solid #fff;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.hero-title {
+  margin-top: 10rem;
+
+  text-align: center;
+  font-size: 2rem;
+}
+
+.hero-title h1 {
+  margin: 1rem 0;
+  font-size: 3rem;
+}
+
+.hero-img {
+  margin-top: 5rem;
+  height: 30rem;
+  width: 30rem;
+}
+
+.hero-img img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
