@@ -8,7 +8,7 @@ Here I put all the exercises made by myself (so far) at the Full-Stack Engineer 
 
 ## What is the current status then?
 
-I'm actually at unit Portfolio Project: Personal Portfolio Website, in the Bulding Interactive Websites Section. 29% of the overall course completed!
+I'm actually at unit Web Apps, in the Front-End Development Section. 35% of the overall course completed!
 
 ## Which Sections and Units are already completed?
 
@@ -26,7 +26,7 @@ Here they are:
    - Improved Stylling with CSS
    - Making a Website Responsive
 
-2. Building Interactive Websites - 99% Completed
+2. Building Interactive Websites - 100% Completed
 
    Units:
 
@@ -36,7 +36,16 @@ Here they are:
    - Portfolio Project: JavaScript Sintax
    - Building Interactive Websites
    - Making a Website Accesible
-   - Portfolio Project: Personal Portfolio Website (current unit)
+   - Portfolio Project: Personal Portfolio Website
+
+3. Front-End Development - 30% Completed
+
+   Units:
+
+   - JavaScript Sintax - Part III
+   - JavaScript Testing
+   - Async JavaScript and HTTP Requests
+   - Web Apps (current unit)
 
 Be welcome to see my work thus far!
 
